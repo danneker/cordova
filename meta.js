@@ -14,15 +14,34 @@ module.exports = {
       "required": true,
       "message": "Project name"
     },
+    "id": {
+      "type": "string",
+      "required": true,
+      "message": "ID"
+    },
+    "version": {
+      "type": "string",
+      "required": true
+      "message": "Version",
+      "default": "1.0.0"
+    },
     "description": {
       "type": "string",
       "required": false,
       "message": "Project description",
-      "default": "A Vue.js project"
+      "default": "A Cordova application that uses Vue.js"
     },
     "author": {
       "type": "string",
       "message": "Author"
+    },
+    "email": {
+      "type": "string",
+      "message": "Email"
+    },
+    "website": {
+      "type": "string",
+      "message": "Website"
     },
     "build": {
       "type": "list",
