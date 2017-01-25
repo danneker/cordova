@@ -101,5 +101,5 @@ module.exports = {
     "test/unit/**/*": "unit",
     "test/e2e/**/*": "e2e"
   },
-  "completeMessage": "To get started:\n\n  cd {{destDirName}}\n  npm install\n  cordova platform add android --save\n  npm run build\n cordova run android"
+  "completeMessage": "To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run build\n === For Android ===\n  cordova platform add android --save\n  cordova run android"
 };
