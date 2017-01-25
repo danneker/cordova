@@ -21,7 +21,7 @@ module.exports = {
     },
     "version": {
       "type": "string",
-      "required": true
+      "required": true,
       "message": "Version",
       "default": "1.0.0"
     },
