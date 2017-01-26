@@ -9,10 +9,10 @@
 npm install
 
 # install Cordova platforms (ie, android, ios..etc)
-cordova add platform <platform-name> --save
+cordova platform add <platform-name> --save
 
 # install Cordova plugins
-cordova add plugin <plugin-name> --save
+cordova plugin add <plugin-name> --save
 
 # serve with hot reload at localhost:8080
 npm run dev
