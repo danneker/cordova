@@ -17,7 +17,8 @@ module.exports = {
     "id": {
       "type": "string",
       "required": true,
-      "message": "ID"
+      "message": "ID",
+      "default": "com.example.cordovavue"
     },
     "version": {
       "type": "string",
@@ -35,13 +36,17 @@ module.exports = {
       "type": "string",
       "message": "Author"
     },
-    "email": {
+    "author_name": {
       "type": "string",
-      "message": "Email"
+      "message": "Author Name"
     },
-    "website": {
+    "author_email": {
       "type": "string",
-      "message": "Website"
+      "message": "Author Email"
+    },
+    "author_website": {
+      "type": "string",
+      "message": "Author Website"
     },
     "build": {
       "type": "list",

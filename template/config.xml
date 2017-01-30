@@ -4,8 +4,8 @@
     <description>
         {{ description }}
     </description>
-    <author email="{{ email }}" href="{{ website }}">
-        {{ author }}
+    <author email="{{ author_email }}" href="{{ author_website }}">
+        {{ author_name }}
     </author>
     <content src="index.html" />
     <access origin="*" />
