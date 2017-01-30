@@ -3,10 +3,9 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 {{/if_eq}}
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import CordovaVue from './plugins/CordovaVue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-
-Vue.use(CordovaVue){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import store from './store'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import { mapActions } from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 /* eslint-disable no-new */
 new Vue({
@@ -16,6 +15,16 @@ new Vue({
   {{/if_eq}}
   {{#if_eq build "standalone"}}
   template: '<App/>',
-  components: { App }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  components: { App },
+  methods: {
+    ...mapActions([
+      'install',
+      'activate'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+    ]){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  },
+  created{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
+    this.install(){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    this.activate(){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   {{/if_eq}}
 }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}

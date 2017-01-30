@@ -1,20 +1,20 @@
 <template>
   <div class="cordova">
-    <div v-if="Cordova.installed && Cordova.ready" class="status active">Cordova Status: Active</div>
-    <div v-if="Cordova.installed && !Cordova.ready" class="status installed">Cordova Status: Installed</div>
-    <div v-if="!Cordova.installed && !Cordova.ready" class="status notinstalled">Cordova Status: Not Installed</div>
+    <div v-if="cordova.installed && cordova.ready" class="status active">Cordova Status: Active</div>
+    <div v-if="cordova.installed && !cordova.ready" class="status installed">Cordova Status: Installed</div>
+    <div v-if="!cordova.installed && !cordova.ready" class="status notinstalled">Cordova Status: Not Installed</div>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import { mapGetters } from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export default {
   name: 'cordova-status',
-  data{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
-    return {
-      Cordova: Vue.Cordova{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-    }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  computed: {
+    ...mapGetters([
+      'cordova'
+    ]){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
