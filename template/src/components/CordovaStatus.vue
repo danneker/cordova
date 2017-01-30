@@ -13,7 +13,7 @@ export default {
   name: 'cordova-status',
   computed: {
     ...mapGetters([
-      'cordova'
+      'cordova'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     ]){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}

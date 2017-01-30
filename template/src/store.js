@@ -5,6 +5,9 @@ Vue.use(Vuex){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 // root state object.
 // each Vuex instance is just a single state tree.
+{{#if_eq lintConfig "airbnb"}}
+/* eslint no-shadow: ["error", { "allow": ["state"] }] */
+{{/if_eq}}
 const state = {
   cordova: {
     version: null,
@@ -26,11 +29,14 @@ const types = {
 // first argument, followed by additional payload arguments.
 // mutations must be synchronous and can be recorded by plugins
 // for debugging purposes.
+{{#if_eq lintConfig "airbnb"}}
+/* eslint no-param-reassign: ["error", { "props": false }] */
+{{/if_eq}}
 const mutations = {
-  [types.INSTALL] (state) {
+  [types.INSTALL]{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}(state) {
     state.cordova.installed = true{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
-  [types.ACTIVATE] (state, cordova) {
+  [types.ACTIVATE]{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}(state, cordova) {
     state.cordova.version = cordova.version{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     state.cordova.platformVersion = cordova.platformVersion{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     state.cordova.platformId = cordova.platformId{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
@@ -43,12 +49,11 @@ const mutations = {
 const actions = {
   install: ({ commit }) => {
     if (window.location.protocol === 'file:') {
-      var cordovaScript = document.createElement('script'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+      const cordovaScript = document.createElement('script'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       cordovaScript.setAttribute('type', 'text/javascript'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       cordovaScript.setAttribute('src', 'cordova.js'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       document.body.appendChild(cordovaScript){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       commit(types.INSTALL){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-      console.log('[CordovaVue] - Cordova JS added to page'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     }
   },
   activate: ({ commit }) => {
@@ -56,11 +61,8 @@ const actions = {
     document.addEventListener('deviceready', () => {
       // look to see if cordova has been correctly loaded
       if (typeof cordova === 'object') {
-        console.log('[CordovaVue] - Cordova loaded Successfully'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
         /* eslint-disable no-undef */
         commit(types.ACTIVATE, cordova){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-      } else {
-        console.log('[CordovaVue] - Cordova integration failed!'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       }
     }, false){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
@@ -68,7 +70,7 @@ const actions = {
 
 // getters are functions
 const getters = {
-  cordova: state => state.cordova{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  cordova: state => state.cordova{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 // A Vuex instance is created by combining the state, mutations, actions,
