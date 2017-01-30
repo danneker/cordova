@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-template-cordova-webpack",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "description": "A full-featured Cordova Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.",
   "scripts": {
