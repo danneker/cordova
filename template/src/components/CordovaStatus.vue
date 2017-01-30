@@ -10,7 +10,7 @@
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export default {
-  name: 'cordova',
+  name: 'cordova-status',
   data{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
     return {
       Cordova: Vue.Cordova{{#if_eq lintConfig "airbnb"}},{{/if_eq}}

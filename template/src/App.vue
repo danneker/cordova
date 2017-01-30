@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <cordova></cordova>
+    <cordova-status></cordova-status>
     <div class="logos">
       <div class="logo">
         <img src="./assets/vue.png">
@@ -14,13 +14,13 @@
 </template>
 
 <script>
-import Cordova from './components/Cordova'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import CordovaStatus from './components/CordovaStatus'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export default {
   name: 'app',
   components: {
-    Cordova,
+    CordovaStatus,
     Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
